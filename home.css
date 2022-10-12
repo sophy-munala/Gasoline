@@ -304,11 +304,8 @@ section{
 }
 /* product section*/
 .products .box-container{
-    max-width: 1200px;
-    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax 30rem);
-    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 1.5rem;
 }
 .products .box-container .box{
@@ -316,7 +313,8 @@ section{
     background-color: #fff;
     outline: var(--outline);
     box-shadow: var(--box-shadow);
-    padding: 2rem;
+    outline-offset: -1rem;
+    padding: 3rem 2rem;
     text-align: center;
     border: var(--border);
     position: relative;
@@ -335,7 +333,7 @@ section{
     color: black;
 }
 .products .box-container .box .qty{
-    width: 90%;
+    width: 50%;
     padding: 1.4rem 1.4rem;
     border-radius: .5rem;
     border: var(--border);
@@ -351,6 +349,7 @@ section{
     color: black;
     background-color: #cc9900;
 }
+/*about us*/
 .about .flex{
     max-width: 1200px;
     margin: 0 auto;
@@ -362,7 +361,7 @@ section{
     flex:1 1 40rem;
 }
 .about .flex .image img{
-    width: 100%;
+    width: 90%;
 }
 .about .flex .content{
     flex:1 1 40rem;
@@ -376,14 +375,43 @@ section{
 }
 .about .flex .content p{
     padding: 1rem 0;
-    line-height: 1.5;
+    line-height: 2;
     font-size: 1.8rem;
     color: #09090b;
 }
 
-.cus-contact{
-    /*background-color: black;*/
+.title{
+    min-height: 40vh;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    background-size: cover;
+    background-color: lightgrey;
+    background-position: center;
 }
+.title h1 span{
+    font-size: 5rem;
+    text-transform: uppercase;
+}
+.title h1{
+    font-size: 5rem;
+    text-transform: uppercase;
+}
+.title p{
+font-size: 3rem;
+color: black;
+}
+.title p a{
+   font-size: rem;
+   color: black;
+}
+.title p a:hover{
+    text-decoration: underline;
+ }
+
+
 .cus-contact .content{
     max-width: 50rem;
     text-align: center;
@@ -400,7 +428,13 @@ section{
     color: black;
     font-size: 1.6rem;
 }
+/*reviews section*/
 
+.reviews.box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
 
 
 
@@ -488,17 +522,18 @@ section{
     }
     .header .header-2 .flex .navbar{
         position: absolute;
-        top: 110%; right: 0; left: 0;
+        top: 90%; right: 0; left: 0;
         border-bottom: var(--border);
         border-top: var(--border);
         box-shadow: var(--box-shadow);
         border-radius: .5rem;
         background: #fff;
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        
     }
-    .header .header-2 .flex .navbar.active{
-         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    .header .header-2 .flex .navbar:hover{
+        color: #cc9900;
     }
+    
     .header .header-2 .flex .navbar a{
         font-size: 2.5rem;
         margin: 2rem;
@@ -512,6 +547,9 @@ section{
 @media (max-width: 450px){
     html{
         font-size: 50%;
+    }
+    .title h1{
+        font-size: 3.5rem;
     }
     .heading{
         font-size: 2.7rem;

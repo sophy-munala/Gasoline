@@ -11,7 +11,7 @@ if(!isset($admin_id)){
 if (isset($_GET['delete'])) {
     // code...
     $delete_id = $_GET['delete'];
-    mysqli_query($conn, "DELETE FROM `orders` WHERE id = '$delete_id'")or die('query failed');
+    mysqli_query($conn, "DELETE FROM `attendant` WHERE attendant_id = '$delete_id'")or die('query failed');
     header('location:admin_attendant_view.php');
 }
 
@@ -47,8 +47,8 @@ if (isset($_GET['delete'])) {
                          // code...
                         echo 'var(--orange)';
                      }?>"><?php echo $fetch_attendants['att_type'];?></span></p>
-                     <a href="admin_attendant_view.php?update=<?php echo $fetch_attendants['id'];?>" class= "btn">update</a>
-                     <a href="admin_attendant_view.php?delete=<?php echo $fetch_attendants['id'];?>" onclick = "return confirm('delete this attendant?');" class="delete-btn">delete</a>
+                     <a href="admin_attendant_view.php?update=<?php echo $fetch_attendants['attendant_id'];?>" class= "btn">update</a>
+                     <a href="admin_attendant_view.php?delete=<?php echo $fetch_attendants['attendant_id'];?>" onclick = "return confirm('delete this attendant?');" class="delete-btn">delete</a>
                  </div>
                  <?php
                  } {

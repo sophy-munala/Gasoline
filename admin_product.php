@@ -54,7 +54,7 @@ if (isset($_POST['update_product'])) {
     $update_p_id = $_POST['update_p_id'];
     $update_name = $_POST['update_name'];
     $update_price = $_POST['update_price'];
-    mysqli_query($conn, "UPDATE `product` SET name = '$update_name', price = '$update_price' WHERE id = '$update_p_id'")or die('query failed');
+    mysqli_query($conn, "UPDATE `product` SET name = '$update_name', price = '$update_price' WHERE product_id = '$update_p_id'")or die('query failed');
      
      $update_image = $_FILES['update_image']['name'];
      $update_image_tmp_name = $_FILES['update_image']['tmp_name'];
@@ -118,8 +118,8 @@ if (isset($_POST['update_product'])) {
                      <img src="image/<?php echo $fetch_products['image']; ?>">
                      <div class="name"><?php echo $fetch_products['name']; ?></div>
                      <div class="price"><?php echo $fetch_products['price']; ?>/-</div>
-                     <a href="admin_product.php?update=<?php echo $fetch_products['id'];?>" class= "btn">update</a>
-                     <a href="admin_product.php?delete=<?php echo $fetch_products['id'];?>" class= "delete-btn" onclick ="return confirm(' are you sure you want to delete this product?');" >delete</a>
+                     <a href="admin_product.php?update=<?php echo $fetch_products['product_id'];?>" class= "btn">update</a>
+                     <a href="admin_product.php?delete=<?php echo $fetch_products['product_id'];?>" class= "delete-btn" onclick ="return confirm(' are you sure you want to delete this product?');" >delete</a>
                  </div>
                  <?php
              }
@@ -139,13 +139,13 @@ if (isset($_POST['update_product'])) {
             if (isset($_GET['update'])) {
                 // code...
                 $update_id = $_GET['update'];
-                $update_query = mysqli_query($conn, "SELECT * FROM `product` WHERE id = '$update_id'") or die('query failed');
+                $update_query = mysqli_query($conn, "SELECT * FROM `product` WHERE product_id = '$update_id'") or die('query failed');
                 if (mysqli_num_rows($update_query) >0) {
                     // code...
                     while($fetch_update = mysqli_fetch_assoc($update_query)){
           ?>
           <form method="post" enctype="multipart/form-data">
-            <input type="hidden" name="update_p_id" value="<?php echo $fetch_update['id'];?>">
+            <input type="hidden" name="update_p_id" value="<?php echo $fetch_update['product_id'];?>">
             <input type="hidden" name="update_old_image" value="<?php echo $fetch_update['image'];?>">
               <img src="image/<?php echo $fetch_update['image'];?>">
               <input type="text" name="update_name" value="<?php echo $fetch_update['name'];?>" class = "box" placeholder= "entet product name">

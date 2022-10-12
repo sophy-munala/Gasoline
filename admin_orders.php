@@ -73,7 +73,7 @@ if (isset($_GET['delete'])) {
                         </select>
 
                         <input type="submit" value="update" name="update_order" class="btn">
-                        <a href="admin_orders.php?delete=<?php echo $fetch_orders['id'];?>" onclick = "return confirm('are you sure you want to delete this order?');" class="delete-btn">delete</a>
+                        <a href="admin_orders.php?delete=<?php echo $fetch_orders['order_id'];?>" onclick = "return confirm('are you sure you want to delete this order?');" class="delete-btn">delete</a>
 
                         
                     </form>
